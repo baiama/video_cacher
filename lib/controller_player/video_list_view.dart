@@ -62,9 +62,6 @@ class _VideoPLayerItemState extends State<VideoPLayerItem> {
   void dispose() {
     super.dispose();
     _controller.dispose();
-    if (widget.controller != null) {
-      widget.controller!.dispose();
-    }
   }
 
   @override
