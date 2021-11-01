@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:video_cacher/controller_player/video_list_view.dart';
+import 'package:video_cacher/models/test_videos.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoLoaderView extends StatefulWidget {
@@ -14,8 +16,7 @@ class _VideoLoaderViewState extends State<VideoLoaderView> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        'https://www.dropbox.com/s/oc03mz30413sfel/clouds.mp4')
+    _controller = VideoPlayerController.network(TestVideoUrls.getRandomVideo())
       ..initialize().then((_) {
         setState(() {});
       });
@@ -33,7 +34,12 @@ class _VideoLoaderViewState extends State<VideoLoaderView> {
       appBar: AppBar(),
       body: Center(
         child: _controller.value.isInitialized
-            ? ElevatedButton(onPressed: () {}, child: const Text('play video'))
+            ? ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => VideoListView()));
+                },
+                child: const Text('play video'))
             : Container(),
       ),
     );
