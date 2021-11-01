@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'controller_player/video_controller_view.dart';
 import 'controller_player/video_list_view.dart';
 
 class Home extends StatelessWidget {
@@ -17,7 +18,7 @@ class Home extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const VideoListView()));
+                        builder: (context) => const VideoLoaderView()));
               },
               child: const Text('Play via controller'),
             ),

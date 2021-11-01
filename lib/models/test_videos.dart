@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class TestVideoUrls {
   final String videUrl;
 
@@ -25,4 +27,9 @@ class TestVideoUrls {
     TestVideoUrls(
         'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'),
   ];
+
+  static String getRandomVideo() {
+    final rng = Random();
+    return videos[rng.nextInt(videos.length)].videUrl;
+  }
 }
