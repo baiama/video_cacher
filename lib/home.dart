@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'cache_player/cache_player_view.dart';
 import 'controller_player/video_controller_view.dart';
 
 class Home extends StatelessWidget {
@@ -23,10 +24,10 @@ class Home extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const VideoListView()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CachePlayerView()));
               },
               child: const Text('Cache manager'),
             )
