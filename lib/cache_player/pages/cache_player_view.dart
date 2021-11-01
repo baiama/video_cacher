@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:video_cacher/cache_player/logic/cache_service.dart';
+import 'package:video_cacher/cache_player/pages/cache_list_player.dart';
 import 'package:video_cacher/models/test_videos.dart';
 
 class CachePlayerView extends StatefulWidget {
@@ -12,7 +15,7 @@ class CachePlayerView extends StatefulWidget {
 
 class _CachePlayerViewState extends State<CachePlayerView> {
   bool loading = false;
-  late String path;
+  late File file;
   @override
   void initState() {
     loading = true;
@@ -27,7 +30,7 @@ class _CachePlayerViewState extends State<CachePlayerView> {
     FileInfo info = await CacheService.instance.downloadFile(url);
     print(info.originalUrl);
     print(info.file.path);
-    path = info.file.path;
+    file = info.file;
     loading = false;
     setState(() {});
   }
@@ -36,6 +39,25 @@ class _CachePlayerViewState extends State<CachePlayerView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (!loading)
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CacheListPlayer(file: file),
+                    ),
+                  );
+                },
+                child: const Text('video'),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
