@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cache_player/cache_player_view.dart';
+import 'cache_player/pages/cache_player_view.dart';
 import 'controller_player/video_controller_view.dart';
 
 class Home extends StatelessWidget {
