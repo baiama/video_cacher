@@ -36,8 +36,14 @@ class _VideoLoaderViewState extends State<VideoLoaderView> {
         child: _controller.value.isInitialized
             ? ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => VideoListView()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => VideoListView(
+                        controller: _controller,
+                      ),
+                    ),
+                  );
                 },
                 child: const Text('play video'))
             : Container(),
