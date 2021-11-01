@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_cacher/player.dart';
+import 'package:video_cacher/players/player.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
