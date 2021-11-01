@@ -16,6 +16,10 @@ class _VideoLoaderViewState extends State<VideoLoaderView> {
   @override
   void initState() {
     super.initState();
+    initController();
+  }
+
+  void initController() {
     _controller = VideoPlayerController.network(TestVideoUrls.getRandomVideo())
       ..initialize().then((_) {
         setState(() {});
@@ -43,7 +47,9 @@ class _VideoLoaderViewState extends State<VideoLoaderView> {
                         controller: _controller,
                       ),
                     ),
-                  );
+                  ).then((value) {
+                    initController();
+                  });
                 },
                 child: const Text('play video'))
             : Container(),
