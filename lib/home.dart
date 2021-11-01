@@ -12,9 +12,9 @@ class Home extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (contex) => VideoListView()));
+                MaterialPageRoute(builder: (context) => const VideoListView()));
           },
-          child: Text('Play view'),
+          child: const Text('Play view'),
         ),
       ),
     );
