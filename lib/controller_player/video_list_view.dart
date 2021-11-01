@@ -45,8 +45,7 @@ class _VideoPLayerItemState extends State<VideoPLayerItem> {
     if (widget.controller != null) {
       _controller = widget.controller!;
     } else {
-      _controller = VideoPlayerController.network(
-          'https://www.dropbox.com/s/oc03mz30413sfel/clouds.mp4')
+      _controller = VideoPlayerController.network(widget.url)
         ..initialize().then((_) {
           setState(() {});
         });
